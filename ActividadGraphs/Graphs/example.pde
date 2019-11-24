@@ -1,27 +1,20 @@
 PImage a;
-boolean state = true;
-boolean pstate = true;
-int time = -1;
-boolean aw = true;
 
-void setup(){
+void setup1(){
   size(800,600);
   background(255);
   frameRate(10);
   a = loadImage("a.png");
-  
-
 }
 
 
-void draw(){
-  if(aw){
+void draw1(){
     linea_lado_extremo(50, 51, 521,504);
-    aw=false;
-  }
 }
 
 void linea_lado_extremo(float x1, float y1, float x2, float y2){
+  image(a, round(x1), round(y1));
+  
   
   float longitud;
   float dx;
@@ -48,10 +41,12 @@ void linea_lado_extremo(float x1, float y1, float x2, float y2){
   
       //point(round(x1),round(y1));
       
-      if(k%3 == 0)
+      if (frameCount%2==0)
+        i=-i;
+      if (i==1) {
+        myDelay(10);
         image(a, round(x1), round(y1));
-        
-
+      }
   }
       //print("x: "+round(x1)+" y: "+round(y1) + "\n");
       
